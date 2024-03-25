@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hen Haven</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Shadows+Into+Light&family=Sofia&display=swap" rel="stylesheet">
     <style>    
     body {
@@ -23,7 +20,7 @@
         background-position: center;
     }
     .card {
-        background-color: #f2f2f2;
+        background-color: #eee9ec;
         border-radius: 15px;
     }
     .card-header {
@@ -43,31 +40,6 @@
         border: none;
         border-radius: 5px;
     }
-    .btn-warning {
-        background-color: #b8f7aa;
-        border: none;
-        border-radius: 5px;
-    }
-    .btn-outline-danger {
-        border-color: #ff3c3c;
-        color: #ff3c3c;
-    }
-    #btnSignUp:hover {
-        background-color: #b0ec75;
-        color: #fff
-    }
-    #btnSignUp {
-        background-color: #b8f7aa;
-        color: #fff
-    }
-    #btnLogin:hover {
-        background-color: #f76ca6;
-        color: #fff
-    }
-    #btnLogin {
-        background-color: #faa7d7;
-        color: #fff
-    } 
     #btnRegister:hover {
         background-color: #f76ca6;
         color: #fff
@@ -75,50 +47,18 @@
     #btnRegister {
         background-color: #faa7d7;
         color: #fff
-    }   
-    #registerCard {
-        max-width: 500px;
-        margin: 0 auto;
-    } 
-    /* Style labels */
-    .form-group label {
-        margin-bottom: 3px;
-        margin-top:3px;
-        display: block;
-    }   
-    .form-group input {
-    width: 100%;
-    display: inline-block;
-    }
-    /*labels with a class = required will have red * at then end so users know info is required */
-    .required:after {
+    }  
+      /*labels with a class = required will have red * at then end so users know info is required */
+      .required:after {
     content:" *";
     color: red;
     }
-</style>
-</head>
-<body class="text-white">
-    <div class="col-md-6 mx-auto card mt-5 mb-5 flex" id="loginCard">
-        <div class="card-header text-center">
-            <h1 style="font-size: 3rem;" id="lblLogin" aria-label="Login Header">Welcome to Hen Haven!</h1>
-            <h2 style="font-size: 2rem;"> Where we hold our coops to high Eggs-pectations!</h2>
-        </div>
-        <div class="card-body">
-            <form id="frmLogin" aria-label="Login Form">
-                <!-- username info for login -->
-                <label class="form-label" for="txtUsername" aria-label="Email Label">Email</label>
-                <input class="form-control mb-3" id="txtUsername" type="email" required aria-label="Email Input">
-                <!-- Password info for login -->
-                <label class="form-label" for="txtPassword" aria-label="Password Label">Password</label>
-                <input class="form-control" type="password" id="txtPassword" required aria-label="Password Input">
-                <!-- btn for login -->
-                <button class="btn col-12 mt-3" id="btnLogin" type="button" aria-label="Login Button" style="color:#fff">Login</button>
-                <button class="btn col-12 btn-warning mt-3" id="btnSignUp" type="button" style="color:#fff" aria-label="Sign-Up Button">Sign-Up!</button>
-            </form>
-        </div>
-    </div>
-    <div class="col-md-6 mx-auto card mt-5 mb-5 flex" id="RegisterCard" style="display: none;">
-        <div class="card-header text-center">
+
+    </style>
+<body class = "text-white">
+    <div class="col-12 d-flex justify-content-center align-items-center ">
+        <div class="col-11 col-md-7 col-lg-7 card" id="divCustomer">
+            <div class="card-header">
             <h2 style="font-size: 3rem;" id="lblRegistration" aria-label="Registration Header">Sign Up To Join The Haven Family!</h2>
         </div>
         <div class="card-body">
@@ -210,119 +150,15 @@
                     <label class="required" id="txtCoopID">Coop ID</label>
                     <input id="txtCoopID" type="text" class="form-control mb-2" required>
                     <button id="btnRegister" class="btn btn-primary col-12 mt-3" type="button">Register</button>
-                    <button id="btnCancel" class="btn btn-outline-danger col-12 mt-3" type="button">Cancel Registration</button>
                 </div>
             </form>
-            </form>
-        </div>
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script>
-    function validateEmail(strEmail) {
-    if (strEmail.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-        return true;
-    }
-    return false;
-};
-
-txtPhoneNumber.addEventListener('input', function (e) {
-    var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-});
-
-var txtZipCode = document.getElementById('txtZipCode');
-
-txtZipCode.addEventListener('input', function (e) {
-    var zipCode = e.target.value.replace(/\D/g, '').slice(0, 5);
-    e.target.value = zipCode;
-});
-
-
-$('#btnLogin').on('click', function () {
-    let strUsername = $('#txtUsername').val().trim();
-    let strPassword = $('#txtPassword').val();
-    let blnError = false;
-    let strErrorMessage = '';
-
-    if (strUsername == '') {
-        blnError = true;
-        strErrorMessage += "<h2>Email can't be blank!</h2>";
-    } else if (!validateEmail(strUsername)) {
-        blnError = true;
-        strErrorMessage += "<h2>Email is invalid! Please try again.</h2>";
-    }
-    if (strPassword === '') {
-        blnError = true;
-        strErrorMessage += "<h2>Password can't be blank.</h2>";
-    } else {
-        let requirements = [];
-        if (strPassword.trim().length < 8) {
-            requirements.push("Password can't be shorter than 8 characters.");
-        }
-        if (!/[A-Z]/.test(strPassword)) {
-            requirements.push("Password must contain at least one uppercase letter.");
-        }
-        if (!/[a-z]/.test(strPassword)) {
-            requirements.push("Password must contain at least one lowercase letter.");
-        }
-        if (!/\d/.test(strPassword)) {
-            requirements.push("Password must contain at least one number.");
-        }
-        if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(strPassword)) {
-            requirements.push("Password must contain at least one special character.");
-        }
-        if (requirements.length > 0) {
-            blnError = true;
-            strErrorMessage += "<h2>Password requirements not met:</h2>";
-            strErrorMessage += "<ul>";
-            requirements.forEach(req => {
-                strErrorMessage += `<li>${req}</li>`;
-            });
-            strErrorMessage += "</ul>";
-        }
-    }
-    // Starts swal messages //
-    if (blnError == true) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Empty Fields',
-            html: strErrorMessage,
-        });
-    } else {
-        $.post('https://simplecoop.swollenhippo.com/sessions.php', { Email: strUsername, Password: strPassword }, function (sessionResult) {
-            sessionResult = JSON.parse(Result);
-            if (sessionResult.Error) {
-                Swal.fire({
-                    icon: 'error',
-                    html: sessionResult.Error
-                });
-            } else if (sessionResult.Outcome == "false") {
-                Swal.fire({
-                    icon: 'error',
-                    html: "Account Not Found"
-                });
-                $('#txtPassword').val('');
-            } else {
-                sessionStorage.setItem("SessionID", sessionResult.SessionID);
-                setTimeout(function () {
-                    Swal.close()
-                    $('#registerCard').slideUp();
-                    $('#loginCard').slideUp()
-                })
-            } 
-        });
-    }
-});
-
-$('#btnSignUp').on('click', function () {
-    $('#loginCard').slideUp();
-    $('#RegisterCard').slideDown();
-});
-
-$('#btnRegister').on('click', function () {
-    let strEmail = $('#txtEmail').val().trim();
+        </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"> </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+$('#btnRegister').on('click', function (){
+    let strEmail = $('#txtEmail').val();
     let strRegisterPassword = $('#txtRegisterPassword').val();
     let strFirstName = $('#txtFirstName').val();
     let strLastName = $('#txtLastName').val();
@@ -332,53 +168,18 @@ $('#btnRegister').on('click', function () {
     let strState = $('#txtState').val();
     let strZipCode = $('#txtZipCode').val();
     let strPhoneNumber = $('#txtPhoneNumber').val();
-    let strCoopID = $('#txtCoopID').val();
+    let strCoopRegistrationID = $('#txtCoopID').val();
 
     let blnError = false;
     let strErrorMessage = '';
 
-    if (strEmail == '') {
+    if (strEmail =='') {
         blnError = true;
         strErrorMessage += "<h2>Email can't be blank.</h2>";
-    } else if (!validateEmail(strEmail)) {
-        blnError = true;
-        strErrorMessage += "<h2>Email is invalid.</h2>";
     }
-
-    if (strRegisterPassword === '') {
+    if (strRegisterPassword == '') {
         blnError = true;
         strErrorMessage += "<h2>Password can't be blank.</h2>";
-    } else {
-        let requirements = [];
-        //checking length requirment
-        if (strRegisterPassword.trim().length < 8) {
-            requirements.push("Password can't be shorter than 8 characters.");
-        }
-        //checking for uppercase letters
-        if (!/[A-Z]/.test(strRegisterPassword)) {
-            requirements.push("Password must contain at least one uppercase letter.");
-        }
-        //checking for lowercase letters
-        if (!/[a-z]/.test(strRegisterPassword)) {
-            requirements.push("Password must contain at least one lowercase letter.");
-        }
-        //checking for number
-        if (!/\d/.test(strRegisterPassword)) {
-            requirements.push("Password must contain at least one number.");
-        }
-        //chacking for special characters
-        if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(strRegisterPassword)) {
-            requirements.push("Password must contain at least one special character.");
-        }
-        if (requirements.length > 0) {
-            blnError = true;
-            strErrorMessage += "<h5>Password requirements not met:</h5>";
-            strErrorMessage += "<ul>";
-            requirements.forEach(req => {
-            strErrorMessage += `<li>${req}</li>`;
-            });
-            strErrorMessage += "</ul>";
-        }
     }
     if (strFirstName == '') {
         blnError = true;
@@ -386,7 +187,7 @@ $('#btnRegister').on('click', function () {
     }
     if (strLastName == '') {
         blnError = true;
-        strErrorMessage += "<h2>Last Name can't be blank.</h2>";
+        strErrorMessage += "<h2>Last Name can't be blank.</25>";
     }
     if (strStreetAddress1 == '') {
         blnError = true;
@@ -408,68 +209,40 @@ $('#btnRegister').on('click', function () {
         blnError = true;
         strErrorMessage += "<h2>Phone Number can't be blank.</h2>";
     }
-    if (strCoopID == '') {
+    if (strCoopRegistrationID == '') {
         blnError = true;
-        strErrorMessage += "<h2>Coop ID can't be blank.</h2>";
+        strErrorMessage += "<h2>Registration ID can't be blank.</h2>";
     }
-
     if (blnError == true) {
         Swal.fire({
             icon: 'error',
             title: 'Empty Fields',
             html: strErrorMessage,
-        });
-    } else {
-        $.post('https://simplecoop.swollenhippo.com/users.php', { Email: strEmail, Password: strRegisterPassword, FirstName: strFirstName, LastName: strLastName, CoopID: strCoopID }, function (sessionResult) {
-            sessionResult = JSON.parse(sessionResult);
-            if (sessionResult.Error) {
-                Swal.fire({
-                    icon: 'error',
-                    html: sessionResult.Error
-                });
-            } else {
-                $.post('https://simplecoop.swollenhippo.com/useraddress.php', { Email: strEmail, Street1: strStreetAddress1, Street2: strStreetAddress2, City: strCity, State: strState, ZIP: strZipCode }, function (addressResult) {
-                    addressResult = JSON.parse(addressResult);
-                    if (addressResult.Error) {
-                        Swal.fire({
-                            icon: 'error',
-                            html: addressResult.Error
-                        });
-                    } else {
-                        $.post('https://simplecoop.swollenhippo.com/sessions.php', { Email: strEmail, Password: strRegisterPassword }, function (sessionResult) {
-                            sessionResult = JSON.parse(sessionResult);
-                            if (sessionResult.Error) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    html: sessionResult.Error
-                                });
-                            } else {
-                                $.ajax({
-                                    url: 'https://simplecoop.swollenhippo.com/coop.php',
-                                    type: 'PUT',
-                                    data: "SessionID=" + sessionResult.SessionID + "&Street1=" + strStreetAddress1 + "&Street2=" + strStreetAddress2 + "&City=" + strCity + "&State=" + strState + "&ZIP=" + strZipCode + "",
-                                    success: function (data) {
-                                        sessionStorage.setItem("SessionID", sessionResult.SessionID);
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'Registration Successful',
-                                            showConfirmButton: false
-                                        });                                
-                                    }})
-                                }
-                        });
-                    }
-                });
-            }
-        });
-    }
-});
+        })};
 
-$('#btnCancel').on('click', function () {
-    $('#loginCard').slideDown();
-    $('#RegisterCard').slideUp();
-});
+    if (blnError == false ){ 
+    $.post('https://simplecoop.swollenhippo.com/users.php',{Email:'Aepayne42@gmail.com', Passwod:'Aepayne42', FirstName:'Ashley',LastName:'Payne',coopID:'J2UQVALQ'},function(Outcome){
+        results = JSON.parse(Outcome)
+        if(results.Outcome = 'New User Created'){
+            $.post('https://simplecoop.swollenhippo.com/useraddress.php',{Email:'Aepayne42@gmail.com',Street1:'2475 Dodson Branch Road',City:'Cookeville',State:'TN',ZIP:'38501'},function(Outcome){
+                results = JSON.parse(Outcome)
+                    if(results.Outcome == "Address Added"){
+                    swal.fire("Profile created!")
+                } else {
+                    swal.fire("Profile not created")
+                }
+            })
+            } else {
+                swal.fire("Profile not created")
+            }
+        }) 
+    }
+})
+    
+
+
+
+
 
 </script>
-</body>
 </html>
