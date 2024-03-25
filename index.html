@@ -240,8 +240,16 @@ $('#btnRegister').on('click', function (){
                 swal.fire("Profile not created")
             }
         }) 
+
+        } else {
+            swal.fire({
+                icon: 'error',
+                type: "error",
+                html: strErrorMessage
+            })
+        }
     }
-})
+)
     
 
 
