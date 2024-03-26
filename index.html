@@ -225,10 +225,10 @@ $('#btnRegister').on('click', function (){
         })};
 
     if (blnError == false ){ 
-    $.post('https://simplecoop.swollenhippo.com/users.php',{Email:'Aepayne42@gmail.com', Passwod:'Aepayne42', FirstName:'Ashley',LastName:'Payne',coopID:'J2UQVALQ'},function(Outcome){
+    $.post('https://simplecoop.swollenhippo.com/users.php',{Email:'arcain42@tntech.edu', Passwod:'Kalero98907', FirstName:'Alex',LastName:'Cain',coopID:'J2UQVALQ'},function(Outcome){
         results = JSON.parse(Outcome)
         if(results.Outcome = 'New User Created'){
-            $.post('https://simplecoop.swollenhippo.com/useraddress.php',{Email:'Aepayne42@gmail.com',Street1:'2475 Dodson Branch Road',City:'Cookeville',State:'TN',ZIP:'38501'},function(Outcome){
+            $.post('https://simplecoop.swollenhippo.com/useraddress.php',{Email:'arcain42@tntech.edu',Street1:'2037 N Willow Avenue',City:'Cookeville',State:'TN',ZIP:'38501'},function(Outcome){
                 results = JSON.parse(Outcome)
                     if(results.Outcome == "Address Added"){
                     swal.fire("Profile created!")
